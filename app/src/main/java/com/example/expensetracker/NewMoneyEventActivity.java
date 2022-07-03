@@ -3,28 +3,28 @@ package com.example.expensetracker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class NewMoneyEventActivity extends AppCompatActivity {
 
     private Spinner categorySpinner;
+    private Spinner typeSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_money_event);
         Category.initCategoryList();
+        Type.initTypeList();
 
         categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
+        typeSpinner = (Spinner) findViewById(R.id.typeSpinner);
 
-        SpinnerAdapter spinnerAdapter = new SpinnerAdapter(this, R.layout.spinner_cell, Category.getCategoryList());
-        categorySpinner.setAdapter(spinnerAdapter);
+        CategorySpinnerAdapter categorySpinnerAdapter = new CategorySpinnerAdapter(this, R.layout.spinner_cell, Category.getCategoryList());
+        categorySpinner.setAdapter(categorySpinnerAdapter);
+
+       TypeSpinnerAdapter typeSpinnerAdapter = new TypeSpinnerAdapter(this, R.layout.spinner_cell, Type.getTypeList());
+       typeSpinner.setAdapter(typeSpinnerAdapter);
+       typeSpinner.setSelection(1);
     }
 }

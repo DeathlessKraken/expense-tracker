@@ -13,14 +13,13 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
-public class SpinnerAdapter extends ArrayAdapter<Category>
+public class TypeSpinnerAdapter extends ArrayAdapter<Type>
 {
-
     LayoutInflater layoutInflater;
 
-    public SpinnerAdapter(@NonNull Context context, int resource, @NonNull List<Category> categories)
+    public TypeSpinnerAdapter(@NonNull Context context, int resource, @NonNull List<Type> typesList)
     {
-        super(context, resource, categories);
+        super(context, resource, typesList);
         layoutInflater = LayoutInflater.from(context);
     }
 
@@ -29,13 +28,13 @@ public class SpinnerAdapter extends ArrayAdapter<Category>
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
     {
         View rowView = layoutInflater.inflate(R.layout.spinner_cell,null,true);
-        Category category = getItem(position);
+        Type type = getItem(position);
 
         TextView tv = (TextView) rowView.findViewById(R.id.cellTextView );
         ImageView iv = (ImageView) rowView.findViewById(R.id.cellImageIcon );
 
-        tv.setText(category.getText());
-        iv.setImageResource(category.getImage());
+        tv.setText(type.getText());
+        iv.setImageResource(type.getImage());
 
         return rowView;
 
@@ -47,13 +46,13 @@ public class SpinnerAdapter extends ArrayAdapter<Category>
         if(convertView == null)
             convertView = layoutInflater.inflate(R.layout.spinner_cell,parent,false);
 
-        Category category = getItem(position);
+        Type type = getItem(position);
 
         TextView tv = (TextView) convertView.findViewById(R.id.cellTextView );
         ImageView iv = (ImageView) convertView.findViewById(R.id.cellImageIcon );
 
-        tv.setText(category.getText());
-        iv.setImageResource(category.getImage());
+        tv.setText(type.getText());
+        iv.setImageResource(type.getImage());
 
         return convertView;
     }

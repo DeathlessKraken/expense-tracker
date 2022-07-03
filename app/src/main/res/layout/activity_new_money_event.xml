@@ -8,20 +8,51 @@
     tools:context=".NewMoneyEventActivity">
 
     <TextView
+        android:id="@+id/newExpenseTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/newExpenseTextView"
-        android:text="New Expense"
-        android:textSize="30dp"
-        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:layout_marginTop="20dp"/>
+        android:text="New Transaction"
+        android:textColor="@color/black"
+        android:textSize="30dp" />
 
     <LinearLayout
+        android:id="@+id/typeSpinnerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/newExpenseTextView"
-        android:layout_marginTop="100dp"
+        android:layout_below="@id/newExpenseTextView"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:textAlignment="textEnd"
+            android:text="Type: "
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            tools:ignore="RtlCompat" />
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="7"
+            android:gravity="center"
+            android:spinnerMode="dropdown"
+            android:id="@+id/typeSpinner"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/categorySpinnerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/typeSpinnerLayout"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -45,5 +76,7 @@
             android:id="@+id/categorySpinner"/>
 
     </LinearLayout>
+
+
 
 </RelativeLayout>
