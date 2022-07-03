@@ -36,7 +36,7 @@ public class EventAdapter extends ArrayAdapter<MoneyEvent>
 
         TextView notes = (TextView) convertView.findViewById(R.id.eventName);
         TextView amount = (TextView) convertView.findViewById(R.id.amount);
-        notes.setText(moneyEvent.getNotes());
+        notes.setText(moneyEvent.getId() + " - " + moneyEvent.getNotes());
         amount.setText(Double.toString(moneyEvent.getAmount()));
 
         //Sets background color based on type of transaction

@@ -9,11 +9,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,23 +27,45 @@ public class MainActivity extends AppCompatActivity {
 
     private Button creditButton;
     private Button debitButton;
+    private Button sortButton;
+    private Button filterButton;
+    private LinearLayout filterView;
+    private LinearLayout sortView1;
+    private LinearLayout sortView2;
 
+    boolean sortHidden = true;
+    boolean filterHidden = true;
+
+
+    private Boolean ascendingSort = true;
     private String selectedFilter = "all";
     private String currentSearchText = "";
     private SearchView searchView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         setupSearchWidget();
+        setupWidgets();
 
         setupData();
         setupList();
         setupOnClickListener();
 
+        hideFilter();
+        hideSort();
+
+    }
+
+    private void setupWidgets()
+    {
+        sortButton = (Button) findViewById(R.id.sortButton);
+        filterButton = (Button) findViewById(R.id.filterButton);
+        filterView = (LinearLayout) findViewById(R.id.filterTabsLayout);
+        sortView1 = (LinearLayout) findViewById(R.id.sortTabsLayout);
+        sortView2 = (LinearLayout) findViewById(R.id.sortTabsLayout2);
     }
 
     private void setupSearchWidget()
@@ -189,5 +214,99 @@ public class MainActivity extends AppCompatActivity {
 
         EventAdapter eventAdapter = new EventAdapter(getApplicationContext(), 0, moneyEventArrayList);
         listView.setAdapter(eventAdapter);
+    }
+
+    public void showFilterTapped(View view)
+    {
+        if(filterHidden)
+        {
+            filterHidden = false;
+            showFilter();
+        }
+        else
+        {
+            filterHidden = true;
+            hideFilter();
+        }
+    }
+
+    public void showSortTapped(View view)
+    {
+        if(sortHidden)
+        {
+            sortHidden = false;
+            showSort();
+        }
+        else
+        {
+            sortHidden = true;
+            hideSort();
+        }
+    }
+
+    public void amountTapped(View view)
+    {
+
+    }
+
+    public void categoryTapped(View view)
+    {
+    }
+
+    public void dateTapped(View view)
+    {
+    }
+
+    public void alphabeticallyTapped(View view)
+    {
+    }
+
+    public void typeTapped(View view)
+    {
+        if(ascendingSort)
+        {
+            Collections.sort(moneyEventArrayList, MoneyEvent.typeAscending);
+            Collections.reverse(moneyEventArrayList);
+            EventAdapter eventAdapter = new EventAdapter(getApplicationContext(), 0, moneyEventArrayList);
+            listView.setAdapter(eventAdapter);
+
+            ascendingSort = false;
+        }
+        else
+        {
+            Collections.sort(moneyEventArrayList, MoneyEvent.typeAscending);
+            EventAdapter eventAdapter = new EventAdapter(getApplicationContext(), 0, moneyEventArrayList);
+            listView.setAdapter(eventAdapter);
+
+            ascendingSort = true;
+        }
+    }
+
+    private void hideFilter()
+    {
+        filterView.setVisibility(View.GONE);
+        searchView.setVisibility(View.GONE);
+        filterButton.setText("FILTER");
+    }
+
+    private void hideSort()
+    {
+        sortView1.setVisibility(View.GONE);
+        sortView2.setVisibility(View.GONE);
+        sortButton.setText("SORT");
+    }
+
+    private void showFilter()
+    {
+        filterView.setVisibility(View.VISIBLE);
+        searchView.setVisibility(View.VISIBLE);
+        filterButton.setText("HIDE");
+    }
+
+    private void showSort()
+    {
+        sortView1.setVisibility(View.VISIBLE);
+        sortView2.setVisibility(View.VISIBLE);
+        sortButton.setText("HIDE");
     }
 }

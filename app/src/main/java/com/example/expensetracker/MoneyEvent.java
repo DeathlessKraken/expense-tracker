@@ -1,5 +1,7 @@
 package com.example.expensetracker;
 
+import java.util.Comparator;
+
 public class MoneyEvent {
 
     private String id;         //UID for each event
@@ -65,4 +67,15 @@ public class MoneyEvent {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+    public static Comparator<MoneyEvent> typeAscending = new Comparator<MoneyEvent>() {
+        @Override
+        public int compare(MoneyEvent moneyEvent1, MoneyEvent moneyEvent2)
+        {
+            int id1 = Integer.valueOf(moneyEvent1.getType());
+            int id2 = Integer.valueOf(moneyEvent2.getType());
+
+            return Integer.compare(id1, id2);
+        }
+    };
 }

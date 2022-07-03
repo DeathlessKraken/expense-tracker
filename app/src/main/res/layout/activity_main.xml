@@ -8,6 +8,41 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/design_default_color_secondary">
+
+        <Button
+            android:id="@+id/sortButton"
+            android:onClick="showSortTapped"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:background="@null"
+            android:text="SORT"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/filterButton"
+            android:onClick="showFilterTapped"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:background="@null"
+            android:text="FILTER"
+            android:layout_gravity="end"
+            android:layout_marginEnd="15dp"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
     <android.widget.SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,6 +52,7 @@
         ></android.widget.SearchView>
     
     <LinearLayout
+        android:id="@+id/filterTabsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -47,6 +83,64 @@
             android:id="@+id/debitFilter"
             android:background="@color/design_default_color_primary"
             android:onClick="debitFilterTapped"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sortTabsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Type"
+            android:background="@color/design_default_color_primary"
+            android:onClick="typeTapped"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="A-Z"
+            android:background="@color/design_default_color_primary"
+            android:onClick="alphabeticallyTapped"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Date"
+            android:background="@color/design_default_color_primary"
+            android:onClick="dateTapped"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sortTabsLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Category"
+            android:background="@color/design_default_color_primary"
+            android:onClick="categoryTapped"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Amount"
+            android:background="@color/design_default_color_primary"
+            android:onClick="amountTapped"/>
+
+
 
     </LinearLayout>
 
