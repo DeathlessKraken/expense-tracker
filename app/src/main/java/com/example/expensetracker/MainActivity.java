@@ -357,6 +357,7 @@ public class MainActivity extends AppCompatActivity {
             Collections.sort(moneyEventArrayList, MoneyEvent.typeAscending);
             Collections.reverse(moneyEventArrayList);
             setAdapter(moneyEventArrayList);
+            checkForFilter();
 
             ascendingSort = false;
         }

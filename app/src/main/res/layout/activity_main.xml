@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,49 +8,56 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/topToolBar"
         android:background="@color/design_default_color_secondary">
 
         <Button
             android:id="@+id/sortButton"
-            android:onClick="showSortTapped"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:background="@null"
-            android:text="SORT"/>
+            android:onClick="showSortTapped"
+            android:text="SORT"
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="@string/app_name"
             android:textColor="@color/design_default_color_primary_dark"
-            android:layout_gravity="center"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/filterButton"
-            android:onClick="showFilterTapped"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:background="@null"
-            android:text="FILTER"
             android:layout_gravity="end"
-            android:layout_marginEnd="15dp"/>
+            android:layout_marginEnd="16dp"
+            android:background="@null"
+            android:onClick="showFilterTapped"
+            android:text="FILTER"
+            android:textSize="20sp" />
 
     </androidx.appcompat.widget.Toolbar>
 
-    <android.widget.SearchView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/moneyEventListSearchView"
-        android:iconifiedByDefault="false"
-        android:queryHint="Expense Name"
-        ></android.widget.SearchView>
-    
+        <android.widget.SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/moneyEventListSearchView"
+            android:iconifiedByDefault="false"
+            android:queryHint="Expense Name">
+
+        </android.widget.SearchView>
+
     <LinearLayout
         android:id="@+id/filterTabsLayout"
         android:layout_width="match_parent"
@@ -86,67 +93,82 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/sortTabsLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/sortTabsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="Type"
-            android:background="@color/design_default_color_primary"
-            android:onClick="typeTapped"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="Type"
+                android:background="@color/design_default_color_primary"
+                android:onClick="typeTapped"/>
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="A-Z"
-            android:background="@color/design_default_color_primary"
-            android:onClick="alphabeticallyTapped"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="A-Z"
+                android:background="@color/design_default_color_primary"
+                android:onClick="alphabeticallyTapped"/>
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="Date"
-            android:background="@color/design_default_color_primary"
-            android:onClick="dateTapped"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="Date"
+                android:background="@color/design_default_color_primary"
+                android:onClick="dateTapped"/>
 
-    </LinearLayout>
+        </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/sortTabsLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/sortTabsLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="Category"
-            android:background="@color/design_default_color_primary"
-            android:onClick="categoryTapped"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="Category"
+                android:background="@color/design_default_color_primary"
+                android:onClick="categoryTapped"/>
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="Amount"
-            android:background="@color/design_default_color_primary"
-            android:onClick="amountTapped"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="Amount"
+                android:background="@color/design_default_color_primary"
+                android:onClick="amountTapped"/>
 
 
 
-    </LinearLayout>
+        </LinearLayout>
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/eventsListView"/>
+    </LinearLayout>
 
-</LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_anchor="@id/eventsListView"
+        app:layout_anchorGravity="bottom|end|right"
+        android:id="@+id/addNewButton"
+        android:clickable="true"
+        android:focusable="true"
+        android:tint="@android:color/white"
+        android:backgroundTint="@color/design_default_color_secondary"
+
+        app:srcCompat="@drawable/ic_add"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
