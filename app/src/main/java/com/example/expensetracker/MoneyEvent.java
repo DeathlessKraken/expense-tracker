@@ -78,4 +78,54 @@ public class MoneyEvent {
             return Integer.compare(id1, id2);
         }
     };
+
+    public static Comparator<MoneyEvent> nameAscending = new Comparator<MoneyEvent>() {
+        @Override
+        public int compare(MoneyEvent moneyEvent1, MoneyEvent moneyEvent2)
+        {
+            String name1 = moneyEvent1.getNotes();
+            String name2 = moneyEvent2.getNotes();
+            name1.toLowerCase();
+            name2.toLowerCase();
+
+            return name1.compareTo(name2);
+        }
+    };
+
+    public static Comparator<MoneyEvent> dateAscending = new Comparator<MoneyEvent>() {
+        @Override
+        public int compare(MoneyEvent moneyEvent1, MoneyEvent moneyEvent2)
+        {
+            String date1 = moneyEvent1.getDate();
+            String date2 = moneyEvent2.getDate();
+            date1.toLowerCase();
+            date2.toLowerCase();
+
+            return date1.compareTo(date2);
+        }
+    };
+
+    public static Comparator<MoneyEvent> categoryAscending = new Comparator<MoneyEvent>() {
+        @Override
+        public int compare(MoneyEvent moneyEvent1, MoneyEvent moneyEvent2)
+        {
+            String cat1 = moneyEvent1.getCat();
+            String cat2 = moneyEvent2.getCat();
+            cat1.toLowerCase();
+            cat2.toLowerCase();
+
+            return cat1.compareTo(cat2);
+        }
+    };
+
+    public static Comparator<MoneyEvent> amountAscending = new Comparator<MoneyEvent>() {
+        @Override
+        public int compare(MoneyEvent moneyEvent1, MoneyEvent moneyEvent2)
+        {
+            double amount1 = moneyEvent1.getAmount();
+            double amount2 = moneyEvent2.getAmount();
+
+            return (Integer) Double.compare(amount1, amount2);
+        }
+    };
 }

@@ -8,10 +8,42 @@
         android:id="@+id/moneyEventName"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
-        android:layout_marginLeft="20dp"
+        android:layout_centerHorizontal="true"
         android:gravity="center_vertical"
         android:text="moneyEvent Name"
         android:textColor="@color/design_default_color_primary_dark"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="moneyEvent Category"
+        android:id="@+id/moneyEventCategoryTextView"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:layout_below="@id/moneyEventName"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="moneyEvent Date"
+        android:id="@+id/moneyEventDateTextView"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:layout_below="@id/moneyEventCategoryTextView"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="moneyEvent amount"
+        android:id="@+id/moneyEventAmountTextView"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:layout_below="@id/moneyEventDateTextView"/>
 
 </RelativeLayout>

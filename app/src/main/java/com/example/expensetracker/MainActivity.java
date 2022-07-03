@@ -107,8 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
-                EventAdapter eventAdapter = new EventAdapter(getApplicationContext(), 0, filteredMoneyEvents);
-                listView.setAdapter(eventAdapter);
+                setAdapter(filteredMoneyEvents);
 
                 return false;
             }
@@ -146,8 +145,7 @@ public class MainActivity extends AppCompatActivity {
     {
         listView = (ListView) findViewById(R.id.eventsListView);
 
-        EventAdapter adapter = new EventAdapter(getApplicationContext(), 0, moneyEventArrayList);
-        listView.setAdapter(adapter);
+        setAdapter(moneyEventArrayList);
 
     }
 
@@ -192,8 +190,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        EventAdapter eventAdapter = new EventAdapter(getApplicationContext(), 0, filteredMoneyEvents);
-        listView.setAdapter(eventAdapter);
+        setAdapter(filteredMoneyEvents);
     }
 
     public void creditFilterTapped(View view)
@@ -212,8 +209,7 @@ public class MainActivity extends AppCompatActivity {
         searchView.setQuery("", false);
         searchView.clearFocus();
 
-        EventAdapter eventAdapter = new EventAdapter(getApplicationContext(), 0, moneyEventArrayList);
-        listView.setAdapter(eventAdapter);
+        setAdapter(moneyEventArrayList);
     }
 
     public void showFilterTapped(View view)
@@ -246,19 +242,112 @@ public class MainActivity extends AppCompatActivity {
 
     public void amountTapped(View view)
     {
+        if(ascendingSort)
+        {
+            Collections.sort(moneyEventArrayList, MoneyEvent.amountAscending);
+            Collections.reverse(moneyEventArrayList);
+            checkForFilter();
+            ascendingSort = false;
+        }
+        else
+        {
+            Collections.sort(moneyEventArrayList, MoneyEvent.amountAscending);
+            setAdapter(moneyEventArrayList);
+            checkForFilter();
 
+            ascendingSort = true;
+        }
     }
 
     public void categoryTapped(View view)
     {
+        if(ascendingSort)
+        {
+            Collections.sort(moneyEventArrayList, MoneyEvent.categoryAscending);
+            Collections.reverse(moneyEventArrayList);
+            checkForFilter();
+            ascendingSort = false;
+        }
+        else
+        {
+            Collections.sort(moneyEventArrayList, MoneyEvent.categoryAscending);
+            setAdapter(moneyEventArrayList);
+            checkForFilter();
+
+            ascendingSort = true;
+        }
     }
 
     public void dateTapped(View view)
     {
+        if(ascendingSort)
+        {
+            Collections.sort(moneyEventArrayList, MoneyEvent.dateAscending);
+            Collections.reverse(moneyEventArrayList);
+            checkForFilter();
+            ascendingSort = false;
+        }
+        else
+        {
+            Collections.sort(moneyEventArrayList, MoneyEvent.dateAscending);
+            setAdapter(moneyEventArrayList);
+            checkForFilter();
+
+            ascendingSort = true;
+        }
     }
 
     public void alphabeticallyTapped(View view)
     {
+        if(ascendingSort)
+        {
+            Collections.sort(moneyEventArrayList, MoneyEvent.nameAscending);
+            Collections.reverse(moneyEventArrayList);
+            checkForFilter();
+            ascendingSort = false;
+        }
+        else
+        {
+            Collections.sort(moneyEventArrayList, MoneyEvent.nameAscending);
+            setAdapter(moneyEventArrayList);
+            checkForFilter();
+
+            ascendingSort = true;
+        }
+    }
+
+    private void checkForFilter() {
+        if (selectedFilter.equals("all"))
+        {
+            if(currentSearchText.equals(""))
+            {
+                setAdapter(moneyEventArrayList);
+            }
+            else
+            {
+                ArrayList<MoneyEvent> filteredMoneyEvents = new ArrayList<MoneyEvent>();
+                for (MoneyEvent moneyEvent : moneyEventArrayList)
+                {
+                    if (moneyEvent.getNotes().toLowerCase().contains(currentSearchText.toLowerCase()))
+                    {
+                        if ((moneyEvent.getType() == 0) && (selectedFilter.equals("credits")))
+                        {
+                            filteredMoneyEvents.add(moneyEvent);
+                        }
+                        if ((moneyEvent.getType() == 1) && (selectedFilter.equals("debits")))
+                        {
+                            filteredMoneyEvents.add(moneyEvent);
+                        }
+                    }
+                }
+                setAdapter(filteredMoneyEvents);
+            }
+
+        }
+        else
+        {
+            filterList(selectedFilter);
+        }
     }
 
     public void typeTapped(View view)
@@ -267,19 +356,23 @@ public class MainActivity extends AppCompatActivity {
         {
             Collections.sort(moneyEventArrayList, MoneyEvent.typeAscending);
             Collections.reverse(moneyEventArrayList);
-            EventAdapter eventAdapter = new EventAdapter(getApplicationContext(), 0, moneyEventArrayList);
-            listView.setAdapter(eventAdapter);
+            setAdapter(moneyEventArrayList);
 
             ascendingSort = false;
         }
         else
         {
             Collections.sort(moneyEventArrayList, MoneyEvent.typeAscending);
-            EventAdapter eventAdapter = new EventAdapter(getApplicationContext(), 0, moneyEventArrayList);
-            listView.setAdapter(eventAdapter);
+            setAdapter(moneyEventArrayList);
+            checkForFilter();
 
             ascendingSort = true;
         }
+    }
+
+    private void setAdapter(ArrayList<MoneyEvent> moneyEventArrayList) {
+        EventAdapter eventAdapter = new EventAdapter(getApplicationContext(), 0, moneyEventArrayList);
+        listView.setAdapter(eventAdapter);
     }
 
     private void hideFilter()

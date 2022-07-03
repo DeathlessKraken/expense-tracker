@@ -24,13 +24,32 @@ public class DetailActivity extends AppCompatActivity {
     {
         Intent previousIntent = getIntent();
         String parsedStringID = previousIntent.getStringExtra("id");
-        selectedMoneyEvent = MainActivity.moneyEventArrayList.get(Integer.valueOf(parsedStringID));
+        selectedMoneyEvent = getParsedMoneyEvent(parsedStringID);
+    }
+
+    private MoneyEvent getParsedMoneyEvent(String parsedID)
+    {
+        for(MoneyEvent moneyEvent : MainActivity.moneyEventArrayList)
+        {
+            if(moneyEvent.getId().equals(parsedID))
+            {
+                return moneyEvent;
+            }
+
+        }
+        return null;
     }
 
     private void setValues()
     {
-        TextView tv = (TextView) findViewById(R.id.moneyEventName);
+        TextView name = (TextView) findViewById(R.id.moneyEventName);
+        TextView category = (TextView) findViewById(R.id.moneyEventCategoryTextView);
+        TextView date = (TextView) findViewById(R.id.moneyEventDateTextView);
+        TextView amount = (TextView) findViewById(R.id.moneyEventAmountTextView);
 
-        tv.setText(selectedMoneyEvent.getNotes());
+        name.setText(selectedMoneyEvent.getNotes());
+        category.setText(selectedMoneyEvent.getCat());
+        date.setText(selectedMoneyEvent.getDate());
+        amount.setText(Double.toString(selectedMoneyEvent.getAmount()));
     }
 }
