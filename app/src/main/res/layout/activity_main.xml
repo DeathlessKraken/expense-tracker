@@ -168,6 +168,7 @@
         android:focusable="true"
         android:tint="@android:color/white"
         android:backgroundTint="@color/design_default_color_secondary"
+        android:onClick="fabTapped"
 
         app:srcCompat="@drawable/ic_add"/>
 

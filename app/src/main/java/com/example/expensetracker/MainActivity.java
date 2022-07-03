@@ -14,6 +14,8 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<MoneyEvent> moneyEventArrayList = new ArrayList<MoneyEvent>();
 
     private ListView listView;
+
+    private FloatingActionButton addNewButton;
 
     private Button creditButton;
     private Button debitButton;
@@ -61,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupWidgets()
     {
+        addNewButton = (FloatingActionButton) findViewById(R.id.addNewButton);
+
         sortButton = (Button) findViewById(R.id.sortButton);
         filterButton = (Button) findViewById(R.id.filterButton);
         filterView = (LinearLayout) findViewById(R.id.filterTabsLayout);
@@ -158,6 +164,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent showDetail = new Intent(getApplicationContext(), DetailActivity.class);
                 showDetail.putExtra("id", selectMoneyEvent.getId());
                 startActivity(showDetail);
+            }
+        });
+
+        addNewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent createExpense = new Intent(getApplicationContext(), NewMoneyEventActivity.class);
+                startActivity(createExpense);
             }
         });
     }
@@ -402,5 +417,10 @@ public class MainActivity extends AppCompatActivity {
         sortView1.setVisibility(View.VISIBLE);
         sortView2.setVisibility(View.VISIBLE);
         sortButton.setText("HIDE");
+    }
+
+    public void fabTapped(View view)
+    {
+
     }
 }

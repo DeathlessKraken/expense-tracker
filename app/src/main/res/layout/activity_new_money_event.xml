@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/design_default_color_background"
+    tools:context=".NewMoneyEventActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/newExpenseTextView"
+        android:text="New Expense"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/newExpenseTextView"
+        android:layout_marginTop="100dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:textAlignment="textEnd"
+            android:text="Category: "
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            tools:ignore="RtlCompat" />
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="7"
+            android:gravity="center"
+            android:spinnerMode="dialog"
+            android:id="@+id/categorySpinner"/>
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>
