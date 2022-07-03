@@ -1,0 +1,59 @@
+[33mcommit 4a871c55e7f21a30c91af63d878f23c63e86f1bd[m[33m ([m[1;36mHEAD -> [m[1;32mexperimental[m[33m, [m[1;31morigin/experimental[m[33m, [m[1;32mmain[m[33m)[m
+Author: Sean <michaelbrown.sean@gmail.com>
+Date:   Sun Jul 3 04:24:11 2022 -0700
+
+    Working FAB to add new expense activity
+
+[33mcommit bc652daae17a884f84787969fe0ddb6b3f3e7eb0[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Sean <michaelbrown.sean@gmail.com>
+Date:   Sun Jul 3 04:08:45 2022 -0700
+
+    Added crude FAB!
+
+[33mcommit b42920c2465521023a81eb458b0037f98ef4e21b[m
+Author: Sean <michaelbrown.sean@gmail.com>
+Date:   Sun Jul 3 02:37:12 2022 -0700
+
+    Added category strings array
+
+[33mcommit d035061a6756f1d74fd30856c3dfd52b7ea9bc53[m
+Author: Sean <michaelbrown.sean@gmail.com>
+Date:   Sun Jul 3 02:35:38 2022 -0700
+
+    Changed background color of detail activity
+
+[33mcommit b717c9e317b1f7cd7e945a302938a16fac123c5e[m
+Author: Sean <michaelbrown.sean@gmail.com>
+Date:   Sun Jul 3 02:33:13 2022 -0700
+
+    Removed dark action bar
+
+[33mcommit f83d71f5ce994746131e7cae0c623cf96b3f63d9[m
+Author: Sean <michaelbrown.sean@gmail.com>
+Date:   Sun Jul 3 01:11:22 2022 -0700
+
+    Completed Filter and Sort functionally, both work in harmony.
+
+[33mcommit 009a3878032964d9e7bc68998556a21b99a0152c[m
+Author: Sean <michaelbrown.sean@gmail.com>
+Date:   Sat Jul 2 23:19:40 2022 -0700
+
+    Added disappearing sort and filter functions, type asc/desc sort button works
+
+[33mcommit 58d8f7200e8614f5eab9aca2fde8bb4772c73ee3[m
+Author: Sean <michaelbrown.sean@gmail.com>
+Date:   Sat Jul 2 20:09:41 2022 -0700
+
+    Added search bar and filters
+
+[33mcommit 8da37be37faa249edc8d503000de2d1672c3268f[m
+Author: Sean <michaelbrown.sean@gmail.com>
+Date:   Sat Jul 2 18:53:18 2022 -0700
+
+    Initial misc files commit
+
+[33mcommit bf8c03fd8eb93f658be342e086eb3bf8d39559ec[m
+Author: Sean <michaelbrown.sean@gmail.com>
+Date:   Sat Jul 2 18:40:01 2022 -0700
+
+    Initial commit, super simple list
