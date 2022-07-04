@@ -74,6 +74,60 @@
             android:gravity="center"
             android:spinnerMode="dropdown"
             android:id="@+id/categorySpinner"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/amountLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/categorySpinnerLayout"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:textAlignment="textEnd"
+            android:text="Amount: "
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            tools:ignore="RtlCompat" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="80dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:gravity="center"
+                android:text="$"
+                android:textSize="30sp"
+                android:textColor="@color/black">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/amountEditText"
+                android:layout_width="0dp"
+                android:layout_weight="9"
+                android:layout_height="80dp"
+
+                android:inputType="number|numberDecimal|phone"
+                android:hint="0.00"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textAlignment="center">
+
+            </EditText>
+        </LinearLayout>
 
     </LinearLayout>
 

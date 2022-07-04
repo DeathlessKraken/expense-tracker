@@ -34,6 +34,11 @@ public class Type
         return typeList;
     }
 
+    public static void clearTypeList()
+    {
+        typeList.clear();
+    }
+
     public static void initTypeList()
     {
         Type income = new Type("income","Income");

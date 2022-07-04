@@ -36,6 +36,11 @@ public class Category
         return categoryList;
     }
 
+    public static void clearCategoryList()
+    {
+        categoryList.clear();
+    }
+
     public static void initCategoryList()
     {
         Category home = new Category("home", "Home");
