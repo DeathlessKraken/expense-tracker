@@ -13,6 +13,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -33,30 +34,40 @@ public class NewMoneyEventActivity extends AppCompatActivity {
         Type.initTypeList();
 
         initDatePicker();
-        
+
+        setupWidgets();
+        setupListeners();
+        setupData();
+    }
+
+    private void setupWidgets()
+    {
         categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
         typeSpinner = (Spinner) findViewById(R.id.typeSpinner);
         dateButton = findViewById(R.id.datePickerButton);
 
+        //Default date is current day on date picker dialog
         dateButton.setText(getTodaysDate());
+    }
 
+    private void setupListeners()
+    {
+
+    }
+
+    private void setupData()
+    {
+        //Populates category list via custom cell adapter
         CategorySpinnerAdapter categorySpinnerAdapter = new CategorySpinnerAdapter(this, R.layout.spinner_cell, Category.getCategoryList());
         categorySpinner.setAdapter(categorySpinnerAdapter);
 
-        //Type Spinner Default Settings
+
+        //Populates type list spinner with custom xml file
         TypeSpinnerAdapter typeSpinnerAdapter = new TypeSpinnerAdapter(this, R.layout.spinner_cell, Type.getTypeList());
         typeSpinner.setAdapter(typeSpinnerAdapter);
+
+        //Type Spinner Default Settings
         typeSpinner.setSelection(1);
-    }
-
-    private String getTodaysDate()
-    {
-        Calendar cal = Calendar.getInstance();
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH);
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-
-        return makeDateString(day, month + 1, year);
     }
 
     private void initDatePicker()
@@ -93,6 +104,16 @@ public class NewMoneyEventActivity extends AppCompatActivity {
         return getMonthFormat(month) + " " + day + " " + year;
     }
 
+    private String getTodaysDate()
+    {
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        return makeDateString(day, month + 1, year);
+    }
+
     private String getMonthFormat(int month)
     {
         if(month == 1)
@@ -123,6 +144,21 @@ public class NewMoneyEventActivity extends AppCompatActivity {
         return "BUN";
     }
 
+    public void saveTapped(View view)
+    {
+        //Save to main file
+        CharSequence saveText = "Saved! (Not Really)";
+        Toast msg = Toast.makeText(this, saveText, Toast.LENGTH_SHORT);
+        msg.show();
+
+        finish();
+    }
+
+    public void cancelTapped(View view)
+    {
+        finish();
+    }
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -130,4 +166,5 @@ public class NewMoneyEventActivity extends AppCompatActivity {
         Category.clearCategoryList();
         Type.clearTypeList();
     }
+
 }

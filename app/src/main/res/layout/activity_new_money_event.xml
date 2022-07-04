@@ -164,5 +164,72 @@
             style="?android:spinnerStyle"/>
 
     </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/notesLayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/dateLayout"
+        android:layout_above="@id/buttonsLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:text="Notes"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textAlignment="center"/>
+
+        <EditText
+            android:id="@+id/notesEditText"
+            
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="start"
+
+            android:textAlignment="viewStart" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonsLayout"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Save"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:onClick="saveTapped"
+            />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Cancel"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:onClick="cancelTapped"
+            />
+
+    </LinearLayout>
+
 
 </RelativeLayout>

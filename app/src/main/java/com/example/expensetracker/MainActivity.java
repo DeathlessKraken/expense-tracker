@@ -166,15 +166,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(showDetail);
             }
         });
-
-        addNewButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                Intent createExpense = new Intent(getApplicationContext(), NewMoneyEventActivity.class);
-                startActivity(createExpense);
-            }
-        });
     }
 
     private void filterList(String status)
@@ -421,6 +412,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void fabTapped(View view)
     {
-
+        Intent createExpense = new Intent(getApplicationContext(), NewMoneyEventActivity.class);
+        startActivity(createExpense);
     }
 }
